@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title ICON -->
+    <link rel="icon" href="./iconmonstr-quote-5.svg">
+
+    <title>Random Quotes</title>
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Random Quote Images
+    </h1>
+
+    <input type="button" value="Press Here" class="inputBtn"> <br> <br>
+
+    <!-- Internal JS -->
+    <script>
+        // Select Elements
+        const btnElement = document.querySelector('.inputBtn');
+        const bodyElement = document.querySelector('body');
+        const h1Element = document.querySelector('h1');
+
+        const quotesArr = [{
+                imageNameAuthor: 'swamy vivekanananda',
+                imageUrl: 'https://www.azquotes.com/vangogh-image-quotes/86/87/Quotation-Swami-Vivekananda-Everything-is-easy-when-you-are-busy-But-nothing-is-86-87-99.jpg'
+            },
+
+            {
+                imageNameAuthor: 'swamy ramakrishna',
+                imageUrl: 'https://www.azquotes.com/picture-quotes/quote-if-you-meditate-on-your-ideal-you-will-acquire-its-nature-if-you-think-of-god-day-and-ramakrishna-83-77-83.jpg'
+            },
+
+            {
+                imageNameAuthor: 'sharadha matha',
+                imageUrl: 'https://www.azquotes.com/picture-quotes/quote-i-tell-you-one-thing-if-you-want-peace-of-mind-do-not-find-fault-with-others-rather-sarada-devi-54-17-92.jpg'
+            },
+
+            {
+                imageNameAuthor: 'rabindranath tagore',
+                imageUrl: 'https://www.azquotes.com/picture-quotes/quote-it-is-very-simple-to-be-happy-but-it-is-very-difficult-to-be-simple-rabindranath-tagore-36-3-0332.jpg'
+            },
+
+            {
+                imageNameAuthor: 'abdul kalam',
+                imageUrl: 'https://www.azquotes.com/vangogh-image-quotes/130/33/Quotation-Abdul-Kalam-If-you-FAIL-never-give-up-because-F-A-I-130-33-54.jpg'
+            }
+        ]
+
+        console.log(quotesArr);
+
+        btnElement.addEventListener('click', function () {
+            const randomArrayElement = Math.floor(Math.random() * (quotesArr.length));
+            console.log(randomArrayElement);
+
+            const imageElement = document.createElement('img');
+
+            for (let i = 0; i < quotesArr.length; i++) {
+                const randomIndex = quotesArr[randomArrayElement].imageUrl;
+                imageElement.setAttribute('src', randomIndex);
+                imageElement.setAttribute('width', '500px');
+
+                const randomIndex1 = quotesArr[randomArrayElement].imageNameAuthor;
+                h1Element.textContent = randomIndex1;
+                h1Element.style.color = 'blue';
+            }
+
+            // console.log(imageElement);
+            bodyElement.appendChild(imageElement);
+        });
+    </script>
+
+</body>
+
+</html>
